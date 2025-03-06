@@ -13,4 +13,5 @@ return [
  'no' => 'Nem',
  'all' => 'Minden',
  'inactive' => 'Inaktív',
+ 'qr_code' => 'QR kód',
 ];

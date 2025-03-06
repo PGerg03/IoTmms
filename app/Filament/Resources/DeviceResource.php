@@ -16,6 +16,7 @@ use Filament\Infolists;
 use Filament\Infolists\Infolist;
 use Filament\Infolists\Components\TextEntry;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\View\View;
 
 class DeviceResource extends Resource
 {
@@ -56,11 +57,11 @@ class DeviceResource extends Resource
                     ->preload()
                     ->createOptionForm([
                         Forms\Components\TextInput::make('name')->label(__('fields.name'))
-                        ->required()
-                        ->unique()
-                        ->maxLength(255)
+                            ->required()
+                            ->unique()
+                            ->maxLength(255)
                     ])
-                ->required(),
+                    ->required(),
                 Forms\Components\TextInput::make('plant')->label(__('fields.plant'))
                     ->required()
                     ->maxLength(255),
@@ -88,11 +89,11 @@ class DeviceResource extends Resource
                     ->searchable()->sortable(),
                 Tables\Columns\IconColumn::make('active')->label(__('fields.active'))
                     ->boolean()
-                    ->action(function($record, $column) {
+                    ->action(function ($record, $column) {
                         $name = $column->getName();
                         $record->update([
-                        $name => !$record->$name
-                    ]);
+                            $name => !$record->$name
+                        ]);
                     }),
                 Tables\Columns\TextColumn::make('created_at')->label(__('fields.created_at'))
                     ->dateTime('Y-m-d H:i')
@@ -105,6 +106,10 @@ class DeviceResource extends Resource
             ->actions([
                 Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('QR')->label(__('fields.qr_code'))
+                    ->modalContent(fn($record): View => view('filament.resources.device-resource.pages.q-r-device', ['record' => $record]))
+                    ->modalSubmitAction(false)
+                    ->modalCancelAction(false)
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -125,6 +130,7 @@ class DeviceResource extends Resource
         return [
             'index' => Pages\ListDevices::route('/'),
             'create' => Pages\CreateDevice::route('/create'),
+            'qr' => Pages\QRDevice::route('/qr/{record}'),
             'view' => Pages\ViewDevice::route('/{record}'),
             'edit' => Pages\EditDevice::route('/{record}/edit'),
         ];
@@ -139,12 +145,11 @@ class DeviceResource extends Resource
                 Infolists\Components\TextEntry::make('type.name')->label(__('fields.type')),
                 Infolists\Components\TextEntry::make('plant')->label(__('fields.plant')),
                 Infolists\Components\TextEntry::make('active')->label(__('fields.active'))
-                ->state(function (Model $record): string {
-                    return $record->active ? __('fields.yes') : __('fields.no');
-                }),
+                    ->state(function (Model $record): string {
+                        return $record->active ? __('fields.yes') : __('fields.no');
+                    }),
                 Infolists\Components\TextEntry::make('history')->label(__('fields.history')),
                 Infolists\Components\TextEntry::make('notes')->label(__('fields.note')),
-    ]);
+            ]);
     }
-
 }
