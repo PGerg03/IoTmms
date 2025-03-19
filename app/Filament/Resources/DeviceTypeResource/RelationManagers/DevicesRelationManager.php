@@ -65,6 +65,5 @@ class DevicesRelationManager extends RelationManager
     {
         return __('module_names.devices.label');
     }
-
     
 }

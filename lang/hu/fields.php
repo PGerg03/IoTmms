@@ -14,4 +14,5 @@ return [
  'all' => 'Minden',
  'inactive' => 'Inaktív',
  'qr_code' => 'QR kód',
+ 'attachment' => 'Csatolt Fájl',
 ];
