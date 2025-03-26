@@ -18,7 +18,7 @@ class DeviceTypeResource extends Resource
     protected static ?string $model = DeviceType::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
-    protected static ?int $navigationSort = 1;
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
@@ -79,7 +79,7 @@ class DeviceTypeResource extends Resource
 
     public static function getNavigationGroup(): string
     {
-        return __('module_names.navigation_groups.administration');
+        return __('module_names.navigation_groups.maintenance');
     }
 
     public static function getModelLabel(): string
