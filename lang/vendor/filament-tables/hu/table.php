@@ -110,14 +110,13 @@ return [
         'heading' => 'Nincs találat',
 
         'description' => 'Hozzon létre egy erőforrást (:model) a kezdéshez.',
-        
+
     ],
 
 
     'filters' => [
 
         'actions' => [
-
             'apply' => [
                 'label' => 'Szűrők alkalmazása',
             ],

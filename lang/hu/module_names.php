@@ -20,5 +20,16 @@ return [
         'label' => 'Jogosultság',
         'plural_label' => 'Jogosultságok',
     ],
+    'roles' => [
+        'label' => 'Szerepkör',
+        'plural_label' => 'Szerepkörök',
+    ],
+    'users' => [
+        'label' => 'Felhasználó',
+        'plural_label' => 'Felhasználók',
+    ],
+    'widgets' => [
+        'usersbyroles' => 'Felhasználók szerepkörök szerint',
+    ],
 
 ];

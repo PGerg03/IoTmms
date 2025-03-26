@@ -9,11 +9,12 @@ use Illuminate\Notifications\Notifiable;
 use Filament\Panel;
 use Filament\Models\Contracts\FilamentUser;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements FilamentUser
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use /* HasApiTokens, */ HasFactory, Notifiable, HasRoles;
+    use /* HasApiTokens, */ HasFactory, Notifiable, HasRoles, SoftDeletes;
     
     public function canAccessPanel(Panel $panel): bool
     {
@@ -29,6 +30,7 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
+        'new_password',
     ];
 
     /**
