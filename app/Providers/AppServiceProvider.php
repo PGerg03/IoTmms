@@ -7,12 +7,15 @@ use App\Models\User;
 use App\Models\Device;
 use App\Models\Document;
 use App\Models\DeviceType;
+use App\Models\Worksheet;
 use App\Policies\RolePolicy;
 use App\Policies\UserPolicy;
 use App\Policies\DevicePolicy;
 use App\Policies\DocumentPolicy;
 use App\Policies\DeviceTypePolicy;
 use App\Policies\PermissionPolicy;
+use App\Policies\WorksheetPolicy;
+// use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 
@@ -25,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         DeviceType::class => DeviceTypePolicy::class,
         Device::class => DevicePolicy::class,
         Document::class => DocumentPolicy::class,
+        Worksheet::class => WorksheetPolicy::class,
     ];
 
     /**
@@ -40,6 +44,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // DB::connection()
+        //     ->getDoctrineSchemaManager()
+        //     ->getDatabasePlatform()
+        //     ->registerDoctrineTypeMapping('enum', 'string');
     }
 }

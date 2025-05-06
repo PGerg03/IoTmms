@@ -48,6 +48,11 @@ class AdministrationSeeder extends Seeder
         $document2 = Permission::create(['name' => 'read documents']);
         $document3 = Permission::create(['name' => 'update documents']);
         $document4 = Permission::create(['name' => 'delete documents']);
+        // WORKSHEET MODEL
+        $worksheet1 = Permission::create(['name' => 'create worksheets']);
+        $worksheet2 = Permission::create(['name' => 'read worksheets']);
+        $worksheet3 = Permission::create(['name' => 'update worksheets']);
+        $worksheet4 = Permission::create(['name' => 'delete worksheets']);
 
         $adminRole = Role::create(['name' => 'admin'])->syncPermissions([
             $userPermission1,
@@ -74,14 +79,23 @@ class AdministrationSeeder extends Seeder
             $document2,
             $document3,
             $document4,
+            $worksheet1,
+            $worksheet2,
+            $worksheet3,
+            $worksheet4,
         ]);
         $repairerRole = Role::create(['name' => 'karbantartó'])->syncPermissions([
             $device2,
             $document2,
+            $worksheet1,
+            $worksheet2,
+            $worksheet3,
         ]);
         $operatorRole = Role::create(['name' => 'gépkezelő'])->syncPermissions([
             $device2,
             $document2,
+            $worksheet1,
+            $worksheet2,
         ]);
         // CREATE ADMINS & USERS
         User::create([
