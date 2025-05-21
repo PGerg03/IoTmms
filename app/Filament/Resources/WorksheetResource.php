@@ -65,8 +65,7 @@ class WorksheetResource extends Resource
                         ->minDate(now()),
                     Forms\Components\DatePicker::make('finish_date')->label(__('fields.finish_date'))
                         ->disabled(!auth()->user()->can('update worksheets'))
-                        ->minDate(now())
-                        ->default(now()),
+                        ->minDate(now()),
                     Forms\Components\FileUpload::make('attachments')->label(__('fields.attachments'))
                         ->required()
                         ->image()
