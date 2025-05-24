@@ -51,6 +51,11 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Worksheet::class, 'repairer_id');
     }
+    
+    public function creators_report(): HasMany
+    {
+        return $this->hasMany(Report::class, 'creator_id');
+    }
 
     /**
      * Get the attributes that should be cast.

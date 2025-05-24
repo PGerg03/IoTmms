@@ -46,8 +46,7 @@ class WorksheetResource extends Resource
                     Forms\Components\Select::make('creator_id')->label(__('fields.creator'))
                         ->relationship('creator', 'name')
                         ->default(!auth()->user()->can('update worksheets') ? auth()->user()->id : null)
-                        ->disabled(!auth()->user()->can('update worksheets') ? true :
-                            false)
+                        ->disabled(!auth()->user()->can('update worksheets') ? true : false)
                         ->required(),
                     Forms\Components\Select::make('repairer_id')->label(__('fields.repairer'))
                         ->options(User::role('karbantartó')->get()->pluck('name', 'id'))

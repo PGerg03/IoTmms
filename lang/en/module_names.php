@@ -3,7 +3,8 @@ return [
     'navigation_groups' => [
         'administration' => 'Administration',
         'maintenance' => 'Maintenance',
-        'failure_report' => 'Failure report'
+        'failure_report' => 'Failure report',
+        'personal_report' => 'Report'
     ],
     'device_types' => [
         'label' => 'Device type',
@@ -20,6 +21,10 @@ return [
     'worksheets' => [
         'label' => 'Worksheet',
         'plural_label' => 'Worksheets',
+    ],
+    'reports' => [
+        'label' => 'Report',
+        'plural_label' => 'Reports',
     ],
     'permissions' => [
         'label' => 'Permission',

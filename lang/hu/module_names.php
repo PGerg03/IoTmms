@@ -3,7 +3,8 @@ return [
     'navigation_groups' => [
         'administration' => 'Adminisztráció',
         'maintenance' => 'Karbantartás',
-        'failure_report' => 'Hibabejelentés'
+        'failure_report' => 'Hibabejelentés',
+        'personal_report' => 'Jelentés'
     ],
     'device_types' => [
         'label' => 'Berendezés típus',
@@ -20,6 +21,10 @@ return [
     'worksheets' => [
         'label' => 'Munkalap',
         'plural_label' => 'Munkalapok',
+    ],
+    'reports' => [
+        'label' => 'Jelentés',
+        'plural_label' => 'Jelentések',
     ],
     'permissions' => [
         'label' => 'Jogosultság',
